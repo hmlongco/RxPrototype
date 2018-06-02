@@ -18,8 +18,12 @@ protocol Observer: class {
     func on(_ event: Event)
 }
 
+protocol ObservableSource: Disposable {
+    func run()
+}
+
 protocol ObservableType {
-    func subscribe(_ observer: Observer) -> Disposable
+    func subscribe(_ observer: Observer) -> ObservableSource
 }
 
 protocol Observable: ObservableType {

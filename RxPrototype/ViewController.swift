@@ -25,7 +25,7 @@ class ViewController: UIViewController {
             .subscribe(on: { e in
                 print("Event: \(e)")
             })
-        //disposable1 = nil
+        disposable1 = nil
 
         print("\n\nSubscription 2")
         disposable2 = observable

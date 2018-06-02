@@ -8,10 +8,10 @@
 
 import Foundation
 
-class ObservableInt: Observable {
+class ObservableInt: ObservableType {
 
-    func subscribe(_ observer: Observer) -> Disposable {
-        return NopDisposable()
+    func subscribe(_ observer: Observer) -> ObservableSource {
+        fatalError()
     }
 
 }

@@ -83,9 +83,9 @@
 				4C1DE92B20C2E04B00C045A4 /* RxProtocols.swift */,
 				4C1DE92D20C2E0EA00C045A4 /* Just.swift */,
 				4C1DE92F20C2E1B400C045A4 /* Something.swift */,
-				4C1DE93120C2E2EA00C045A4 /* ObservableTypeInt.swift */,
 				4C1DE93320C2EA1800C045A4 /* Disposable.swift */,
 				4C1DE93520C2EF1800C045A4 /* Subscribe.swift */,
+				4C1DE93120C2E2EA00C045A4 /* ObservableTypeInt.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";

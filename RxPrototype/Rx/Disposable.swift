@@ -18,16 +18,17 @@ class NopDisposable: Disposable {
 
 //class SubscriptionDisposable: Disposable {
 //
-//    var observable: ObservableType?
+//    var subscription: SubscriptionSink?
 //
-//    init(_ observable: ObservableType) {
+//    init(_ subscription: SubscriptionSink) {
 //        print("SubscriptionDisposable created")
-//        self.observable = observable
+//        self.subscription = subscription
 //    }
 //
 //    func dispose() {
 //        print("SubscriptionDisposable disposed")
-//        self.observable = nil
+//        subscription?.dispose()
+//        subscription = nil
 //    }
 //
 //}

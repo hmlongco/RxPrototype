@@ -19,14 +19,14 @@ extension ObservableType {
 
 class SubscriptionSink: Observer, Disposable {
 
-    var subscription: ((_ event: Event) -> Void)?
-    var disposable: Disposable?
+    var subscriptionHandler: ((_ event: Event) -> Void)?
+    var source: ObservableSource?
 
     init(_ observable: Observable?, _ subscription: @escaping (_ event: Event) -> Void) {
         print("SubscriptionSink created")
-        self.subscription = subscription
-        self.disposable = observable as? Disposable
-        _ = observable?.subscribe(self)
+        self.subscriptionHandler = subscription
+        self.source = observable?.subscribe(self)
+        self.source?.run()
     }
 
     deinit {
@@ -37,18 +37,20 @@ class SubscriptionSink: Observer, Disposable {
         print("SubscriptionSink on event \(event)")
         switch event {
         case .next:
-            subscription?(event)
+            subscriptionHandler?(event)
         case .completed, .error:
-            subscription?(event)
+            subscriptionHandler?(event)
             dispose()
         }
     }
 
     func dispose() {
-        subscription = nil
-        disposable?.dispose()
-        disposable = nil
-        print("SubscriptionSink disposed")
+        if source != nil {
+            source?.dispose()
+            source = nil
+            subscriptionHandler = nil
+            print("SubscriptionSink disposed")
+        }
     }
 
 }

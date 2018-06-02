@@ -26,11 +26,33 @@ class Just: Observable {
         self.value = value
     }
 
-    func subscribe(_ observer: Observer) -> Disposable {
+    func subscribe(_ observer: Observer) -> ObservableSource {
         print("Just subscribing")
-        observer.on(.next(value))
-        observer.on(.completed)
-        return NopDisposable()
+        return JustSource(observer, value)
+    }
+
+}
+
+class JustSource: ObservableSource {
+
+    var value: Int
+    var observer: Observer?
+
+    init(_ observer: Observer, _ value: Int) {
+        print("JustSource created")
+        self.observer = observer
+        self.value = value
+    }
+
+    func run() {
+        print("JustSource running")
+        observer?.on(.next(value))
+        observer?.on(.completed)
+    }
+
+    func dispose() {
+        observer = nil
+        print("JustSource disposed")
     }
 
 }

@@ -26,34 +26,38 @@ class Something: Observable {
         self.observable = observable
     }
 
-    func subscribe(_ observer: Observer) -> Disposable {
+    func subscribe(_ observer: Observer) -> ObservableSource {
         print("Something subscribing")
         return SomethingSink(observable, observer)
     }
     
 }
 
-class SomethingSink: Observer, Disposable {
+class SomethingSink: Observer, ObservableSource {
 
-    weak var observer: Observer?
-    var disposable: Disposable?
+    var source: ObservableSource?
+    var observer: Observer?
 
     init(_ observable: Observable?, _ observer: Observer) {
         print("SomethingSink created")
         self.observer = observer
-        self.disposable = observable as? Disposable
-        _ = observable?.subscribe(self)
+        self.source = observable?.subscribe(self)
     }
 
     deinit {
         print("SomethingSink deinit")
     }
 
+    func run() {
+        print("SomethingSink running")
+        source?.run()
+    }
+
     func on(_ event: Event) {
         print("SomethingSink on event \(event)")
         switch event {
         case .next(let value):
-            if value > 0 {
+            if value > 0 { // We're doing something........
                 forward(event)
             }
         case .completed, .error:
@@ -70,10 +74,12 @@ class SomethingSink: Observer, Disposable {
     }
 
     func dispose() {
-        observer = nil
-        disposable?.dispose()
-        disposable = nil
-        print("SomethingSink disposed")
+        if source != nil {
+            source?.dispose()
+            source = nil
+            observer = nil
+            print("SomethingSink disposed")
+        }
     }
 
 }
