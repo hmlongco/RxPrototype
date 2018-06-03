@@ -8,6 +8,36 @@
 
 import Foundation
 
+class ObservableSink: Observer, ObservableSource {
+
+    var source: ObservableSource?
+    var observer: Observer?
+
+    init(_ observable: Observable?, _ observer: Observer) {
+        self.observer = observer
+        self.source = observable?.subscribe(self)
+    }
+
+    func run() {
+        source?.run()
+    }
+
+    func on(_ event: Event) {
+        fatalError("Abstract")
+    }
+
+    func forward(_ event: Event) {
+        observer?.on(event)
+    }
+
+    func dispose() {
+        source?.dispose()
+        source = nil
+        observer = nil
+    }
+
+}
+
 class Sink: Observer, Disposable {
 
     var source: ObservableSource?
@@ -33,26 +63,3 @@ class Sink: Observer, Disposable {
 
 }
 
-class ObservableSink: Sink, ObservableSource {
-
-    weak var observer: Observer?
-
-    init(_ observable: Observable?, _ observer: Observer) {
-        self.observer = observer
-        super.init(observable)
-    }
-
-    func run() {
-        source?.run()
-    }
-
-    func forward(_ event: Event) {
-        observer?.on(event)
-    }
-
-    override func dispose() {
-        observer = nil
-        super.dispose()
-    }
-
-}
