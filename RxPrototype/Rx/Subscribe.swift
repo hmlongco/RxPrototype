@@ -17,7 +17,7 @@ extension ObservableType {
 
 }
 
-class SubscriptionSink: Observer, Disposable {
+fileprivate class SubscriptionSink: Observer, Disposable {
 
     var subscriptionHandler: ((_ event: Event) -> Void)?
     var source: ObservableSource?
@@ -31,6 +31,7 @@ class SubscriptionSink: Observer, Disposable {
 
     deinit {
         print("SubscriptionSink deinit")
+        dispose()
     }
 
     func on(_ event: Event) {

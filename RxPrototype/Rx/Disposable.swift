@@ -18,17 +18,23 @@ class NopDisposable: Disposable {
 
 //class SubscriptionDisposable: Disposable {
 //
-//    var subscription: SubscriptionSink?
+//    var disposable: Disposable?
 //
-//    init(_ subscription: SubscriptionSink) {
+//    init(_ disposable: Disposable) {
 //        print("SubscriptionDisposable created")
-//        self.subscription = subscription
+//        self.disposable = disposable
+//    }
+//
+//    deinit {
+//        print("SubscriptionDisposable deinit")
+//        disposable?.dispose()
+//        disposable = nil
 //    }
 //
 //    func dispose() {
 //        print("SubscriptionDisposable disposed")
-//        subscription?.dispose()
-//        subscription = nil
+//        disposable?.dispose()
+//        disposable = nil
 //    }
 //
 //}

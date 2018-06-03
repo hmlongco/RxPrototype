@@ -17,7 +17,7 @@ extension ObservableType {
 
 }
 
-class Something: Observable {
+fileprivate class Something: Observable {
 
     var observable: Observable?
 
@@ -33,7 +33,7 @@ class Something: Observable {
     
 }
 
-class SomethingSink: Observer, ObservableSource {
+fileprivate class SomethingSink: Observer, ObservableSource {
 
     var source: ObservableSource?
     var observer: Observer?
@@ -46,6 +46,7 @@ class SomethingSink: Observer, ObservableSource {
 
     deinit {
         print("SomethingSink deinit")
+        dispose()
     }
 
     func run() {
@@ -57,7 +58,7 @@ class SomethingSink: Observer, ObservableSource {
         print("SomethingSink on event \(event)")
         switch event {
         case .next(let value):
-            if value > 0 { // We're doing something........
+            if value > 0 { // Quiet! We're doing something here........
                 forward(event)
             }
         case .completed, .error:

@@ -17,7 +17,7 @@ extension ObservableType {
 
 }
 
-class Just: Observable {
+fileprivate class Just: Observable {
 
     var value: Int
 
@@ -33,7 +33,7 @@ class Just: Observable {
 
 }
 
-class JustSource: ObservableSource {
+fileprivate class JustSource: ObservableSource {
 
     var value: Int
     var observer: Observer?

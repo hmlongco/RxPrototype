@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Dummy class just so I have a concrete instance of a protocol
 class ObservableInt: ObservableType {
 
     func subscribe(_ observer: Observer) -> ObservableSource {

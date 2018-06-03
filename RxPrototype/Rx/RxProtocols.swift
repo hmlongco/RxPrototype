@@ -14,10 +14,6 @@ enum Event {
     case error
 }
 
-protocol Observer: class {
-    func on(_ event: Event)
-}
-
 protocol ObservableSource: Disposable {
     func run()
 }
@@ -29,3 +25,24 @@ protocol ObservableType {
 protocol Observable: ObservableType {
 
 }
+
+protocol Observer: ObserverType {
+
+}
+
+protocol ObserverType: class {
+    func on(_ event: Event)
+}
+
+extension ObserverType {
+    public func onNext(_ element: Int) {
+        on(.next(element))
+    }
+    public func onCompleted() {
+        on(.completed)
+    }
+    public func onError() {
+        on(.error)
+    }
+}
+
