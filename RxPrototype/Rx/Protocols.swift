@@ -14,10 +14,6 @@ enum Event {
     case error
 }
 
-protocol ObservableSource: Disposable {
-    func run()
-}
-
 protocol ObservableType {
     func subscribe(_ observer: Observer) -> ObservableSource
 }
@@ -27,7 +23,7 @@ protocol Observable: ObservableType {
 }
 
 protocol Observer: ObserverType {
-
+    
 }
 
 protocol ObserverType: class {

@@ -12,15 +12,17 @@
 		4C1DE91E20C2E02800C045A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1DE91C20C2E02800C045A4 /* Main.storyboard */; };
 		4C1DE92020C2E02A00C045A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1DE91F20C2E02A00C045A4 /* Assets.xcassets */; };
 		4C1DE92320C2E02A00C045A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1DE92120C2E02A00C045A4 /* LaunchScreen.storyboard */; };
-		4C1DE92C20C2E04B00C045A4 /* RxProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DE92B20C2E04B00C045A4 /* RxProtocols.swift */; };
+		4C1DE92C20C2E04B00C045A4 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DE92B20C2E04B00C045A4 /* Protocols.swift */; };
 		4C1DE92E20C2E0EA00C045A4 /* Just.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DE92D20C2E0EA00C045A4 /* Just.swift */; };
-		4C1DE93020C2E1B400C045A4 /* Something.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DE92F20C2E1B400C045A4 /* Something.swift */; };
+		4C1DE93020C2E1B400C045A4 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DE92F20C2E1B400C045A4 /* Map.swift */; };
 		4C1DE93220C2E2EA00C045A4 /* ObservableTypeInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DE93120C2E2EA00C045A4 /* ObservableTypeInt.swift */; };
 		4C1DE93420C2EA1800C045A4 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DE93320C2EA1800C045A4 /* Disposable.swift */; };
 		4C1DE93620C2EF1800C045A4 /* Subscribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DE93520C2EF1800C045A4 /* Subscribe.swift */; };
 		4C1DE93820C31F2000C045A4 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DE93720C31F2000C045A4 /* Filter.swift */; };
 		4C1DE93A20C350FA00C045A4 /* Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DE93920C350FA00C045A4 /* Create.swift */; };
-		4C1DE93C20C35ECF00C045A4 /* Sink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DE93B20C35ECF00C045A4 /* Sink.swift */; };
+		4C1DE93C20C35ECF00C045A4 /* ObservableSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DE93B20C35ECF00C045A4 /* ObservableSink.swift */; };
+		4C1DE93E20C405F200C045A4 /* ObservableSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DE93D20C405F200C045A4 /* ObservableSource.swift */; };
+		4C1DE94020C4191D00C045A4 /* PublishSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DE93F20C4191D00C045A4 /* PublishSubject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,15 +33,17 @@
 		4C1DE91F20C2E02A00C045A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C1DE92220C2E02A00C045A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C1DE92420C2E02A00C045A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4C1DE92B20C2E04B00C045A4 /* RxProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxProtocols.swift; sourceTree = "<group>"; };
+		4C1DE92B20C2E04B00C045A4 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		4C1DE92D20C2E0EA00C045A4 /* Just.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Just.swift; sourceTree = "<group>"; };
-		4C1DE92F20C2E1B400C045A4 /* Something.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Something.swift; sourceTree = "<group>"; };
+		4C1DE92F20C2E1B400C045A4 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		4C1DE93120C2E2EA00C045A4 /* ObservableTypeInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableTypeInt.swift; sourceTree = "<group>"; };
 		4C1DE93320C2EA1800C045A4 /* Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
 		4C1DE93520C2EF1800C045A4 /* Subscribe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscribe.swift; sourceTree = "<group>"; };
 		4C1DE93720C31F2000C045A4 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		4C1DE93920C350FA00C045A4 /* Create.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Create.swift; sourceTree = "<group>"; };
-		4C1DE93B20C35ECF00C045A4 /* Sink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sink.swift; sourceTree = "<group>"; };
+		4C1DE93B20C35ECF00C045A4 /* ObservableSink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableSink.swift; sourceTree = "<group>"; };
+		4C1DE93D20C405F200C045A4 /* ObservableSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableSource.swift; sourceTree = "<group>"; };
+		4C1DE93F20C4191D00C045A4 /* PublishSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishSubject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,15 +90,17 @@
 		4C1DE92A20C2E03300C045A4 /* Rx */ = {
 			isa = PBXGroup;
 			children = (
-				4C1DE92B20C2E04B00C045A4 /* RxProtocols.swift */,
 				4C1DE93920C350FA00C045A4 /* Create.swift */,
-				4C1DE92D20C2E0EA00C045A4 /* Just.swift */,
-				4C1DE93720C31F2000C045A4 /* Filter.swift */,
-				4C1DE92F20C2E1B400C045A4 /* Something.swift */,
 				4C1DE93320C2EA1800C045A4 /* Disposable.swift */,
-				4C1DE93520C2EF1800C045A4 /* Subscribe.swift */,
+				4C1DE93720C31F2000C045A4 /* Filter.swift */,
+				4C1DE92D20C2E0EA00C045A4 /* Just.swift */,
+				4C1DE92F20C2E1B400C045A4 /* Map.swift */,
+				4C1DE93B20C35ECF00C045A4 /* ObservableSink.swift */,
+				4C1DE93D20C405F200C045A4 /* ObservableSource.swift */,
 				4C1DE93120C2E2EA00C045A4 /* ObservableTypeInt.swift */,
-				4C1DE93B20C35ECF00C045A4 /* Sink.swift */,
+				4C1DE92B20C2E04B00C045A4 /* Protocols.swift */,
+				4C1DE93F20C4191D00C045A4 /* PublishSubject.swift */,
+				4C1DE93520C2EF1800C045A4 /* Subscribe.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -171,16 +177,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1DE93220C2E2EA00C045A4 /* ObservableTypeInt.swift in Sources */,
-				4C1DE93C20C35ECF00C045A4 /* Sink.swift in Sources */,
+				4C1DE93C20C35ECF00C045A4 /* ObservableSink.swift in Sources */,
 				4C1DE91B20C2E02800C045A4 /* ViewController.swift in Sources */,
-				4C1DE92C20C2E04B00C045A4 /* RxProtocols.swift in Sources */,
-				4C1DE93020C2E1B400C045A4 /* Something.swift in Sources */,
+				4C1DE92C20C2E04B00C045A4 /* Protocols.swift in Sources */,
+				4C1DE93020C2E1B400C045A4 /* Map.swift in Sources */,
 				4C1DE93620C2EF1800C045A4 /* Subscribe.swift in Sources */,
 				4C1DE91920C2E02700C045A4 /* AppDelegate.swift in Sources */,
 				4C1DE93420C2EA1800C045A4 /* Disposable.swift in Sources */,
 				4C1DE93820C31F2000C045A4 /* Filter.swift in Sources */,
+				4C1DE94020C4191D00C045A4 /* PublishSubject.swift in Sources */,
 				4C1DE92E20C2E0EA00C045A4 /* Just.swift in Sources */,
 				4C1DE93A20C350FA00C045A4 /* Create.swift in Sources */,
+				4C1DE93E20C405F200C045A4 /* ObservableSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

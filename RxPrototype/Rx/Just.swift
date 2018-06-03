@@ -12,12 +12,12 @@ extension ObservableType {
 
     static func just(_ value: Int) -> Observable {
         print("Just observing")
-        return Just(value)
+        return JustProvider(value)
     }
 
 }
 
-fileprivate class Just: Observable {
+fileprivate class JustProvider: Observable {
 
     var value: Int
 
@@ -42,6 +42,10 @@ fileprivate class JustSource: ObservableSource {
         print("JustSource created")
         self.observer = observer
         self.value = value
+    }
+
+    deinit {
+        print("JustSource deinit")
     }
 
     func run() {

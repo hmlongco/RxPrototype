@@ -8,20 +8,22 @@
 
 import Foundation
 
+typealias SubscribeHandler = ((_ observer: ObserverType) -> Disposable)
+
 extension ObservableType {
 
     static func create(_ subscribeHandler: @escaping (_ observer: ObserverType) -> Disposable) -> Observable {
         print("Create observing")
-        return Create(subscribeHandler)
+        return CreateProvider(subscribeHandler)
     }
 
 }
 
-fileprivate class Create: Observable {
+fileprivate class CreateProvider: Observable {
 
-    var subscribeHandler: ((_ observer: ObserverType) -> Disposable)
+    var subscribeHandler: SubscribeHandler
 
-    init(_ subscribeHandler: @escaping (_ observer: ObserverType) -> Disposable) {
+    init(_ subscribeHandler: @escaping SubscribeHandler) {
         print("Create creating")
         self.subscribeHandler = subscribeHandler
     }
@@ -35,11 +37,11 @@ fileprivate class Create: Observable {
 
 fileprivate class CreateSource: ObservableSource, ObserverType {
 
-    var subscribeHandler: ((_ observer: ObserverType) -> Disposable)?
+    var subscribeHandler: SubscribeHandler?
     var subscribeDisposable: Disposable? = nil
     var observer: Observer?
 
-    init(_ observer: Observer, _ subscribeHandler: @escaping (_ observer: ObserverType) -> Disposable) {
+    init(_ observer: Observer, _ subscribeHandler: @escaping SubscribeHandler) {
         print("CreateSource created")
         self.observer = observer
         self.subscribeHandler = subscribeHandler
@@ -47,7 +49,6 @@ fileprivate class CreateSource: ObservableSource, ObserverType {
 
     deinit {
         print("CreateSource deinit")
-        dispose()
     }
 
     func run() {

@@ -15,26 +15,3 @@ protocol Disposable {
 class NopDisposable: Disposable {
     func dispose() {}
 }
-
-//class SubscriptionDisposable: Disposable {
-//
-//    var disposable: Disposable?
-//
-//    init(_ disposable: Disposable) {
-//        print("SubscriptionDisposable created")
-//        self.disposable = disposable
-//    }
-//
-//    deinit {
-//        print("SubscriptionDisposable deinit")
-//        disposable?.dispose()
-//        disposable = nil
-//    }
-//
-//    func dispose() {
-//        print("SubscriptionDisposable disposed")
-//        disposable?.dispose()
-//        disposable = nil
-//    }
-//
-//}

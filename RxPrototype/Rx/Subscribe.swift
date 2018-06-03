@@ -8,33 +8,33 @@
 
 import Foundation
 
+typealias SubscriptionHandler = (_ event: Event) -> Void
+
 extension ObservableType {
 
-    func subscribe(on subscription: @escaping (_ event: Event) -> Void) -> Disposable {
+    func subscribe(on subscription: @escaping SubscriptionHandler) -> Disposable {
         print("SubscriptionSink subscribing")
         return SubscriptionSink(self as? Observable, subscription)
     }
 
 }
 
-fileprivate class SubscriptionSink: Observer, Disposable {
+fileprivate class SubscriptionSink: Sink {
 
-    var subscriptionHandler: ((_ event: Event) -> Void)?
-    var source: ObservableSource?
+    var subscriptionHandler: SubscriptionHandler?
 
     init(_ observable: Observable?, _ subscription: @escaping (_ event: Event) -> Void) {
         print("SubscriptionSink created")
         self.subscriptionHandler = subscription
-        self.source = observable?.subscribe(self)
+        super.init(observable)
         self.source?.run()
     }
 
     deinit {
         print("SubscriptionSink deinit")
-        dispose()
     }
 
-    func on(_ event: Event) {
+    override func on(_ event: Event) {
         print("SubscriptionSink on event \(event)")
         switch event {
         case .next:
@@ -45,13 +45,10 @@ fileprivate class SubscriptionSink: Observer, Disposable {
         }
     }
 
-    func dispose() {
-        if source != nil {
-            source?.dispose()
-            source = nil
-            subscriptionHandler = nil
-            print("SubscriptionSink disposed")
-        }
+    override func dispose() {
+        super.dispose()
+        subscriptionHandler = nil
+        print("SubscriptionSink disposed")
     }
 
 }
