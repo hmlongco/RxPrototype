@@ -14,6 +14,14 @@ class PublishSubject: Observable, ObserverType {
     private var subscribers = [Int:PublishSubjectSubscription]()
     private var mutex = pthread_mutex_t()
 
+    init() {
+        print("PublishSubject created")
+    }
+
+    deinit {
+        print("PublishSubject deinit")
+    }
+
     func subscribe(_ observer: Observer) -> ObservableSource {
         print("PublishSubject subscribing")
         pthread_mutex_lock(&mutex); defer { pthread_mutex_unlock(&mutex) }
@@ -26,9 +34,11 @@ class PublishSubject: Observable, ObserverType {
 
     func on(_ event: Event) {
         print("PublishSubject forwarding event \(event)")
+        pthread_mutex_lock(&mutex); defer { pthread_mutex_unlock(&mutex) }
         for (_, subscriber) in subscribers {
             subscriber.on(event)
         }
+        // note no special handling of stop events, firing down chain should propagate dispose back up the chain
     }
 
     func remove(_ id: Int) {
